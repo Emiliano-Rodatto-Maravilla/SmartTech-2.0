@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - Smart Tech</title>
+    <link rel="icon" href="ruta/a/favicon_generico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/Style.css">
+</head>
+<body>
+    <!--Navbar-->
+    <div class="pos-f-t">
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">Smart Tech</a>
+        </nav>
+
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <div class="row">
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="celular.html">Celulares</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="accesorio.html">Accesorios</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="#">Ofertas</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="login.html">Iniciar Sesión</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" id="ver-carrito" href="#">Ver Carrito (<span id="carrito-count">0</span>)</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="Pages/soporte.html">Soporte</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="detalleProducto">
+        <img id="productoImagen" src="" alt="">
+        <h3 id="productoNombre"></h3>
+        <p id="productoDescripcion"></p>
+        <p id="productoPrecio"></p>
+    </div>
+    
+    <script>
+      window.onload = function() {
+    const producto = JSON.parse(localStorage.getItem('productoSeleccionado'));
+    console.log(producto); // Para ver el contenido de producto en la consola
+
+    // Convertir las categorías a minúsculas antes de compararlas
+    if (producto && producto.categoria.toLowerCase() === 'celular') {
+        document.getElementById('productoImagen').src = producto.url_imagen;
+        document.getElementById('productoNombre').innerText = producto.nombre;
+        document.getElementById('productoDescripcion').innerText = producto.descripcion;
+        document.getElementById('productoPrecio').innerText = `$${producto.precio}`;
+    } else {
+        // Mostrar mensaje si el producto no pertenece a la categoría 'celular'
+        document.getElementById('detalleProducto').innerHTML = "<p>Este producto no pertenece a la categoría 'celular'.</p>";
+    }
+};
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

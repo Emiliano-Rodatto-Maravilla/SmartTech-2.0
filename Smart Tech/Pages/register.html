@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="../css/Style.css">
+</head>
+<body>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        <a href="producto.html">Celulares</a>
+        <a href="#">Accesorios</a>
+        <a href="#">Ofertas</a>
+        <a href="#" id="ver-carrito">Ver Carrito (<span id="carrito-count">0</span>)</a>
+    </nav>
+
+<h1>Registro</h1>
+<div id="register">
+    <form id="registerForm" onsubmit="event.preventDefault(); register();">
+      <input type="text" id="registerFirstName" placeholder="Nombre" required />
+      <input type="text" id="registerLastName" placeholder="Apellido" required />
+      <input type="email" id="registerEmail" placeholder="Email" required />
+      <input type="password" id="registerPassword" placeholder="Contraseña" required />
+      <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required />
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+  
+
+<script src="../JS/loginData.js"></script>
+<script src="../JS/login.js"></script>
+</body>
+</html>

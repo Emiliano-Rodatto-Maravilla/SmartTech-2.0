@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+<body>
+    <!--Navbar-->
+    <div class="pos-f-t">
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">Smart Tech</a>
+        </nav>
+
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <div class="row">
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="celular.html">Celulares</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="accesorio.html">Accesorios</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="#">Ofertas</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="login.html">Iniciar Sesión</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" id="ver-carrito" href="#">Ver Carrito (<span id="carrito-count">0</span>)</a>
+                        </nav>
+                    </div>
+                    <div class="col text-right">
+                        <nav>
+                            <a class="text-white" href="soporte.html">Soporte</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Producto-->
+    <div class="container mt-5">
+        <div id="producto-detalle" class="card mb-3">
+            <img id="producto-imagen" class="card-img-top" src="" alt="Imagen del producto">
+            <div class="card-body">
+                <h5 id="producto-nombre" class="card-title"></h5>
+                <p id="producto-descripcion" class="card-text"></p>
+                <p id="producto-precio" class="card-text"></p>
+                <p id="producto-marca" class="card-text"></p>
+                <p id="producto-stock" class="card-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el producto seleccionado de localStorage
+        const productoSeleccionado = JSON.parse(localStorage.getItem('productoSeleccionado'));
+
+        if (productoSeleccionado) {
+            document.getElementById('producto-nombre').textContent = productoSeleccionado.nombre;
+            document.getElementById('producto-imagen').src = productoSeleccionado.url_imagen;
+            document.getElementById('producto-imagen').alt = productoSeleccionado.nombre;
+            document.getElementById('producto-descripcion').textContent = productoSeleccionado.descripcion;
+            document.getElementById('producto-precio').textContent = productoSeleccionado.precio;
+            document.getElementById('producto-marca').textContent = productoSeleccionado.marca;
+            document.getElementById('producto-stock').textContent = productoSeleccionado.stock;
+        } else {
+            document.getElementById('producto-detalle').innerHTML = '<p>No se encontró el producto.</p>';
+        }
+        
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
